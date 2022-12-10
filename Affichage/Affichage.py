@@ -7,8 +7,6 @@ class Affichage:
 
         fenetre.title('Learnobot')
 
-        #fenetre.iconbitmap('/Code/logo.ico')
-
         fenetre.config(bg = '#FFFFFF')
 
         fenetre.geometry('800x600')
