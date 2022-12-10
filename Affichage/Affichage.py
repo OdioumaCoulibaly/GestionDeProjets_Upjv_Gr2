@@ -1,33 +1,33 @@
-from tkinter import *
-from tkinter import ttk
+#from tkinter import *
+import tkinter as tk
 
 class Affichage:
 
-        fenetre = Tk()
+        fenetre = tk.Tk()
+
+        #print(rcpath('../Images/logo.ico'))
+        #icone = tk.PhotoImage(file='..\Images\logo.ico')
+        #fenetre.tk.call('wm', 'iconphoto', fenetre._w, icone)
+
+        fenetre.geometry('800x600')
 
         fenetre.title('Learnobot')
 
         fenetre.config(bg = '#FFFFFF')
 
-        fenetre.geometry('800x600')
-
         fenetre.columnconfigure(0, weight=1)
         fenetre.columnconfigure(1, weight=3)
 
-        headerCodeBrut = ttk.Label(fenetre, text="Python")
+        headerCodeBrut = tk.Label(fenetre, text="Python")
         headerCodeBrut.grid(column=0, row=0, padx=5, pady=5)
 
-        headerCodeSimple= ttk.Entry(fenetre)
+        headerCodeSimple= tk.Label(fenetre, text="Code Simplifié")
         headerCodeSimple.grid(column=1, row=0, padx=5, pady=5)
 
-        password_label = ttk.Label(fenetre, text="Simplifié")
-        password_label.grid(column=0, row=1, padx=5, pady=5)
+        CodePython = tk.Label(fenetre, text="Ici du code Python")
+        CodePython.grid(column=0, row=1, padx=5, pady=5)
 
-        password_entry = ttk.Entry(fenetre,  show="*")
-        password_entry.grid(column=1, row=1, padx=5, pady=5)
-
-        login_button = ttk.Button(fenetre, text="Login")
-        login_button.grid(column=1, row=3, padx=5, pady=5)
-
+        CodeSimple = tk.Label(fenetre, text="Ici des briques de codes simplifié")
+        CodeSimple.grid(column=1, row=1, padx=5, pady=5)
 
         fenetre.mainloop()
