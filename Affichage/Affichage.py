@@ -1,52 +1,54 @@
-from tkinter import *
-import os
-#import tkinter as tk
+import tkinter as tk
+import tkinter.font as tkFont
+from PIL import Image, ImageTk
+
 
 class Affichage:
+    def __init__(self, fenetre):
+        #setting title
 
-        fenetre = Tk()
-        canvas = Canvas(fenetre, width=200, height=600)
+        fenetre.title("LearnoBot")
+        fenetre.attributes("-fullscreen",True)
+        screenwidth = fenetre.winfo_screenwidth()
+        screenheight = fenetre.winfo_screenheight()
+        fenetre.resizable(width=False, height=False)
+
        
-        imgCode = PhotoImage(file="Images/capture.png")
-        imgCode = imgCode.zoom(25)
-        imgCode = imgCode.subsample(32)
 
-        canvas.create_image(0, 0, anchor=NW, image=imgCode)
+        TitreLabelPython=tk.Label(fenetre)
+        ft = tkFont.Font(family='Times',size=20)
+        TitreLabelPython["font"] = ft
+        TitreLabelPython["fg"] = "#FFFFFF"
+        TitreLabelPython["bg"] = "#2F5496"
+        TitreLabelPython["justify"] = "center"
+        TitreLabelPython["text"] = "Code Python"
+        TitreLabelPython.place(x=0,y=0,width=screenwidth/2,height=screenheight/9)
+
+        TitreLabelCodeSimple=tk.Label(fenetre)
+        ft = tkFont.Font(family='Times',size=20)
+        TitreLabelCodeSimple["font"] = ft
+        TitreLabelCodeSimple["fg"] = "#FFFFFF"
+        TitreLabelCodeSimple["bg"] = "#2F5496"
+        TitreLabelCodeSimple["justify"] = "center"
+        TitreLabelCodeSimple["text"] = "Code Simplifié"
+        TitreLabelCodeSimple.place(x=screenwidth/2,y=0,width=screenwidth/2,height=screenheight/9)
 
 
-        fenetre.iconbitmap("Images/logo.ico")
-        fenetre.geometry('800x600')
-        fenetre.title('Learnobot')
-        fenetre.config(bg = '#FFFFFF')
+        fichierimg = Image.open("Images/testCapture.png")
+        image = ImageTk.PhotoImage(fichierimg)
 
-        ''' 
+        ImageCode = tk.Label(image=image)
+        ImageCode.image = image
 
-        panelP.add(Label(fenetre, text="Python", background="blue", anchor=NW))
-        panelP.add(Label(fenetre, text="Python", background="red", anchor=NE))
-        
-        panelP.add(Label(fenetre, image=imgCode)
-        panelP.add(LabelFrame(fenetre, text="Pour"))
+        ft = tkFont.Font(family='Times',size=10)
+        ImageCode["font"] = ft
+        ImageCode["fg"] = "#333333"
+        ImageCode["bg"] = "#3E3E40"
+        ImageCode["justify"] = "center"
+        ImageCode["text"] = "label"
+        ImageCode.place(x=0,y=screenheight/9,width=screenwidth/2,height=(screenheight-(screenheight/9)))
 
-        '''
-
-        p1 = PanedWindow()
-        p1.pack(fill=BOTH, expand=1)
-
-        left = Label(fenetre, image=imgCode)
-        p1.add(left)
-
-        p2 = PanedWindow(p1, orient=VERTICAL)
-        p1.add(p2)
-
-        top = Label(p2, text="Top Panel")
-        p2.add(top)
-
-        codeSimple = LabelFrame(fenetre, text="type mouvement/humeur")
-        frameFor = LabelFrame(codeSimple, text="Pour .....").pack()
-        frameIf = LabelFrame(codeSimple, text="Si ...").pack()
-
-        p2.add(codeSimple)
-                
-        p1.pack()
-
-        fenetre.mainloop()      
+if __name__ == "__main__":
+    fenetre = tk.Tk()
+    app = Affichage(fenetre)
+    fenetre.mainloop()
