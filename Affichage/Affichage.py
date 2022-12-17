@@ -1,33 +1,52 @@
-#from tkinter import *
-import tkinter as tk
+from tkinter import *
+import os
+#import tkinter as tk
 
 class Affichage:
 
-        fenetre = tk.Tk()
+        fenetre = Tk()
+        canvas = Canvas(fenetre, width=200, height=600)
+       
+        imgCode = PhotoImage(file="Images/capture.png")
+        imgCode = imgCode.zoom(25)
+        imgCode = imgCode.subsample(32)
 
-        #print(rcpath('../Images/logo.ico'))
-        #icone = tk.PhotoImage(file='..\Images\logo.ico')
-        #fenetre.tk.call('wm', 'iconphoto', fenetre._w, icone)
+        canvas.create_image(0, 0, anchor=NW, image=imgCode)
 
+
+        fenetre.iconbitmap("Images/logo.ico")
         fenetre.geometry('800x600')
-
         fenetre.title('Learnobot')
-
         fenetre.config(bg = '#FFFFFF')
 
-        fenetre.columnconfigure(0, weight=1)
-        fenetre.columnconfigure(1, weight=3)
+        ''' 
 
-        headerCodeBrut = tk.Label(fenetre, text="Python")
-        headerCodeBrut.grid(column=0, row=0, padx=5, pady=5)
+        panelP.add(Label(fenetre, text="Python", background="blue", anchor=NW))
+        panelP.add(Label(fenetre, text="Python", background="red", anchor=NE))
+        
+        panelP.add(Label(fenetre, image=imgCode)
+        panelP.add(LabelFrame(fenetre, text="Pour"))
 
-        headerCodeSimple= tk.Label(fenetre, text="Code Simplifié")
-        headerCodeSimple.grid(column=1, row=0, padx=5, pady=5)
+        '''
 
-        CodePython = tk.Label(fenetre, text="Ici du code Python")
-        CodePython.grid(column=0, row=1, padx=5, pady=5)
+        p1 = PanedWindow()
+        p1.pack(fill=BOTH, expand=1)
 
-        CodeSimple = tk.Label(fenetre, text="Ici des briques de codes simplifié")
-        CodeSimple.grid(column=1, row=1, padx=5, pady=5)
+        left = Label(fenetre, image=imgCode)
+        p1.add(left)
 
-        fenetre.mainloop()
+        p2 = PanedWindow(p1, orient=VERTICAL)
+        p1.add(p2)
+
+        top = Label(p2, text="Top Panel")
+        p2.add(top)
+
+        codeSimple = LabelFrame(fenetre, text="type mouvement/humeur")
+        frameFor = LabelFrame(codeSimple, text="Pour .....").pack()
+        frameIf = LabelFrame(codeSimple, text="Si ...").pack()
+
+        p2.add(codeSimple)
+                
+        p1.pack()
+
+        fenetre.mainloop()      
