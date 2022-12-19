@@ -46,12 +46,7 @@ public class  MainActivity extends AppCompatActivity {
 
             }
         });
-        mOk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
         mDeconnexion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
