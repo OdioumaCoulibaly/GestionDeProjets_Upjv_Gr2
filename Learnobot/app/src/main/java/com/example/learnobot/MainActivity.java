@@ -23,7 +23,7 @@ import java.util.UUID;
 
 public class  MainActivity extends AppCompatActivity {
 
-    private Button mBas, mHaut, mDroite, mGauche, mOk, mDeconnexion;
+    private Button  mDeconnexion, mColere, mCoucou, mBaisserMain, mDanser, mEffraye, mFatigue, mFaim, mTournerBassin, mHeureux, mLeverMain, mPleurer, mSurprise, mTournerTete, mYoupi;
 
     //-------------------------------------------
     Handler bluetoothIn;
@@ -79,36 +79,121 @@ public class  MainActivity extends AppCompatActivity {
 
 
 
-        mBas = findViewById(R.id.idBas);
-        mHaut = findViewById(R.id.idHaut);
-        mDroite = findViewById(R.id.idDroite);
-        mGauche = findViewById(R.id.idGauche);
+        mColere = findViewById(R.id.idColere);
+        mCoucou = findViewById(R.id.idCoucou);
+        mBaisserMain = findViewById(R.id.idBaisserMain);
+        mDanser = findViewById(R.id.idDanser);
         mDeconnexion = findViewById(R.id.idDeconnexion);
 
-        mBas.setOnClickListener(new View.OnClickListener() {
+        mEffraye = findViewById(R.id.idEffraye);
+        mFatigue = findViewById(R.id.idFatigue);
+        mFaim = findViewById(R.id.idFaim);
+        mTournerBassin = findViewById(R.id.idTournerBassin);
+
+
+        mHeureux = findViewById(R.id.idHeureux);
+        mLeverMain = findViewById(R.id.idLeverMain);
+        mPleurer = findViewById(R.id.idPleurer);
+        mSurprise = findViewById(R.id.idSurprise);
+
+        mTournerTete = findViewById(R.id.idTournerTete);
+        mYoupi = findViewById(R.id.idYoupi);
+
+
+
+
+
+
+        mColere.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyConexionBT.write("B");
+                MyConexionBT.write("mColere");
             }
         });
-        mHaut.setOnClickListener(new View.OnClickListener() {
+        mCoucou.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyConexionBT.write("H");
+                MyConexionBT.write("mCoucou");
             }
         });
-        mDroite.setOnClickListener(new View.OnClickListener() {
+        mBaisserMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyConexionBT.write("D");
+                MyConexionBT.write("mBaisserMain");
             }
         });
-        mGauche.setOnClickListener(new View.OnClickListener() {
+        mDanser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyConexionBT.write("G");
+                MyConexionBT.write("mDanser");
             }
         });
+
+
+
+        mEffraye.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MyConexionBT.write("mEffraye");
+            }
+        });
+        mFatigue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MyConexionBT.write("mFatigue");
+            }
+        });
+        mFaim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MyConexionBT.write("mFaim");
+            }
+        });
+        mTournerBassin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MyConexionBT.write("mTournerBassin");
+            }
+        });
+
+        mHeureux.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MyConexionBT.write("mHeureux");
+            }
+        });
+        mLeverMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MyConexionBT.write("mLeverMain");
+            }
+        });
+        mPleurer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MyConexionBT.write("mPleurer");
+            }
+        });
+        mSurprise.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MyConexionBT.write("mSurprise");
+            }
+        });
+
+        mTournerTete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MyConexionBT.write("mTournerTete");
+            }
+        });
+        mYoupi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MyConexionBT.write("mYoupi");
+            }
+        });
+
 
         mDeconnexion.setOnClickListener(new View.OnClickListener() {
             @Override
