@@ -148,7 +148,7 @@ public class  MainActivity extends AppCompatActivity {
         try {
             btSocket = createBluetoothSocket(device);
         } catch (IOException e) {
-            Toast.makeText(getBaseContext(), "La creacción del Socket fallo", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "La création de la Socket a échoué", Toast.LENGTH_LONG).show();
         }
         // Establece la conexión con el socket Bluetooth.
         try {
@@ -254,8 +254,8 @@ public class  MainActivity extends AppCompatActivity {
             }
             catch (IOException e)
             {
-                //si no es posible enviar datos se cierra la conexión
-                Toast.makeText(getBaseContext(), "La Conexión fallo", Toast.LENGTH_LONG).show();
+                // s'il n'est pas possible d'envoyer des données, la connexion est fermée
+                Toast.makeText(getBaseContext(), " La connexion a échoué", Toast.LENGTH_LONG).show();
                 finish();
             }
         }
@@ -264,47 +264,4 @@ public class  MainActivity extends AppCompatActivity {
 }
 
 
-/*----------------------------------------------------------------------
-        mBas = findViewById(R.id.idBas);
-        mHaut = findViewById(R.id.idHaut);
-        mDroite = findViewById(R.id.idDroite);
-        mGauche = findViewById(R.id.idGauche);
-        mDeconnexion = findViewById(R.id.idDeconnexion);
 
-        mBas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-        mHaut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-        mDroite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-        mGauche.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-<<<<<<< HEAD
-
-=======
->>>>>>> bluetooth
-        mDeconnexion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-    }
-*/
