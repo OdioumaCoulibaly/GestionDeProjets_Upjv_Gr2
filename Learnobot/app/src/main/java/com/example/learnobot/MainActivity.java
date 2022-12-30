@@ -24,7 +24,7 @@ import java.util.UUID;
 
 public class  MainActivity extends AppCompatActivity {
 
-    private Button  mDeconnexion, mColere, mCoucou, mBaisserMain, mDanser, mEffraye, mFatigue, mFaim, mTournerBassin, mHeureux, mLeverMain, mPleurer, mSurprise, mTournerTete, mYoupi;
+    private Button  mDeconnexion,mAmoureux, mColere, mCoucou, mBaisserMain, mDanser, mTristesse, mFatigue, mTektonik, mMasque, mRire, mLeverMain, mClin_d_oeuil, mSurprise, mBase, mYoupi;
 
     //-------------------------------------------
     Handler bluetoothIn;
@@ -80,32 +80,37 @@ public class  MainActivity extends AppCompatActivity {
         //-----------------------------------------------------------------------
 
 
-
+        mAmoureux = findViewById(R.id.idAmoureux);
         mColere = findViewById(R.id.idColere);
         mCoucou = findViewById(R.id.idCoucou);
         mBaisserMain = findViewById(R.id.idBaisserMain);
         mDanser = findViewById(R.id.idDanser);
         mDeconnexion = findViewById(R.id.idDeconnexion);
 
-        mEffraye = findViewById(R.id.idEffraye);
+        mTristesse = findViewById(R.id.idTristesse);
         mFatigue = findViewById(R.id.idFatigue);
-        mFaim = findViewById(R.id.idFaim);
-        mTournerBassin = findViewById(R.id.idTournerBassin);
+        mTektonik = findViewById(R.id.idTektonik);
+        mMasque = findViewById(R.id.idMasque);
 
 
-        mHeureux = findViewById(R.id.idHeureux);
+        mRire = findViewById(R.id.idRire);
         mLeverMain = findViewById(R.id.idLeverMain);
-        mPleurer = findViewById(R.id.idPleurer);
+        mClin_d_oeuil = findViewById(R.id.idClin_d_oeuil);
         mSurprise = findViewById(R.id.idSurprise);
 
-        mTournerTete = findViewById(R.id.idTournerTete);
+        mBase = findViewById(R.id.idBase);
         mYoupi = findViewById(R.id.idYoupi);
 
 
 
 
 
-
+        mAmoureux.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MyConexionBT.write("mAmoureux");
+            }
+        });
         mColere.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -133,10 +138,10 @@ public class  MainActivity extends AppCompatActivity {
 
 
 
-        mEffraye.setOnClickListener(new View.OnClickListener() {
+        mTristesse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyConexionBT.write("mEffraye");
+                MyConexionBT.write("mTristesse");
             }
         });
         mFatigue.setOnClickListener(new View.OnClickListener() {
@@ -145,23 +150,23 @@ public class  MainActivity extends AppCompatActivity {
                 MyConexionBT.write("mFatigue");
             }
         });
-        mFaim.setOnClickListener(new View.OnClickListener() {
+        mTektonik.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyConexionBT.write("mFaim");
+                MyConexionBT.write("mTektonik");
             }
         });
-        mTournerBassin.setOnClickListener(new View.OnClickListener() {
+        mMasque.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyConexionBT.write("mTournerBassin");
+                MyConexionBT.write("mMasque");
             }
         });
 
-        mHeureux.setOnClickListener(new View.OnClickListener() {
+        mRire.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyConexionBT.write("mHeureux");
+                MyConexionBT.write("mRire");
             }
         });
         mLeverMain.setOnClickListener(new View.OnClickListener() {
@@ -170,10 +175,10 @@ public class  MainActivity extends AppCompatActivity {
                 MyConexionBT.write("mLeverMain");
             }
         });
-        mPleurer.setOnClickListener(new View.OnClickListener() {
+        mClin_d_oeuil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyConexionBT.write("mPleurer");
+                MyConexionBT.write("mClin_d_oeuil");
             }
         });
         mSurprise.setOnClickListener(new View.OnClickListener() {
@@ -183,10 +188,10 @@ public class  MainActivity extends AppCompatActivity {
             }
         });
 
-        mTournerTete.setOnClickListener(new View.OnClickListener() {
+        mBase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyConexionBT.write("mTournerTete");
+                MyConexionBT.write("mBase");
             }
         });
         mYoupi.setOnClickListener(new View.OnClickListener() {

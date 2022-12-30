@@ -41,17 +41,17 @@
 
             <Button
                 android:id="@+id/idYoupi"
-                android:layout_width="wrap_content"
+                android:layout_width="117dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Youpi" />
 
             <Button
-                android:id="@+id/idTournerBassin"
-                android:layout_width="164dp"
+                android:id="@+id/idMasque"
+                android:layout_width="138dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="tourner le bassin" />
+                android:text="Masque" />
         </LinearLayout>
 
         <LinearLayout
@@ -75,11 +75,11 @@
                 android:text="baisser main" />
 
             <Button
-                android:id="@+id/idTournerTete"
+                android:id="@+id/idBase"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="tourner la tête " />
+                android:text="Base" />
         </LinearLayout>
 
         <LinearLayout
@@ -96,18 +96,18 @@
                 android:text="danser" />
 
             <Button
-                android:id="@+id/idPleurer"
+                android:id="@+id/idClin_d_oeuil"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="pleurer" />
+                android:text="Clin d'oeuil" />
 
             <Button
-                android:id="@+id/idHeureux"
+                android:id="@+id/idRire"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="heureux" />
+                android:text="Rire" />
         </LinearLayout>
 
         <LinearLayout
@@ -124,11 +124,11 @@
                 android:text="colère" />
 
             <Button
-                android:id="@+id/idFaim"
+                android:id="@+id/idTektonik"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="faim" />
+                android:text="Tektonik" />
 
             <Button
                 android:id="@+id/idSurprise"
@@ -145,11 +145,11 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/idEffraye"
+                android:id="@+id/idTristesse"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="effrayé" />
+                android:text="Tristesse" />
 
             <Button
                 android:id="@+id/idFatigue"
@@ -159,11 +159,11 @@
                 android:text="fatigue" />
 
             <Button
-                android:id="@+id/idHumeur1"
+                android:id="@+id/idAmoureux"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="humeur" />
+                android:text="Amoureux" />
         </LinearLayout>
 
     </LinearLayout>
