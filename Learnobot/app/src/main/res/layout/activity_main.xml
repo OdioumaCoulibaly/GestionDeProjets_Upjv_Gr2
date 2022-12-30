@@ -18,8 +18,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="411dp"
-        android:layout_height="654dp"
+        android:layout_width="359dp"
+        android:layout_height="523dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/idDeconnexion"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +34,7 @@
 
             <Button
                 android:id="@+id/idCoucou"
-                android:layout_width="wrap_content"
+                android:layout_width="115dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Coucou" />
@@ -48,7 +48,7 @@
 
             <Button
                 android:id="@+id/idTournerBassin"
-                android:layout_width="wrap_content"
+                android:layout_width="164dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="tourner le bassin" />
