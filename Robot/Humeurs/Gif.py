@@ -31,9 +31,9 @@ class Frame:
 
 # pylint: enable=too-few-public-methods
 
-
 class AnimatedGif:
-    def __init__(self, display, width=None, height=None, folder=None):
+        
+    def __init__(self, display, width=None, height=None, gif=None):
         self._frame_count = 0
         self._loop = 0
         self._index = 0
@@ -52,8 +52,11 @@ class AnimatedGif:
         self.display = display
         self.advance_button = init_button(BUTTON_NEXT)
         self.back_button = init_button(BUTTON_PREVIOUS)
-        if folder is not None:
-            self.load_files(folder)
+        if gif is not None:
+            image = Image.open(gif)
+            # Only add animated Gifs
+            if image.is_animated:
+                self._gif_files.append(gif)
             self.run()
 
     def advance(self):
@@ -61,20 +64,6 @@ class AnimatedGif:
 
     def back(self):
         self._index = (self._index - 1 + len(self._gif_files)) % len(self._gif_files)
-
-    def load_files(self, folder):
-        gif_files = [f for f in os.listdir(folder) if f.endswith(".gif")]
-        for gif_file in gif_files:
-            gif_file = os.path.join(folder, gif_file)
-            image = Image.open(gif_file)
-            # Only add animated Gifs
-            if image.is_animated:
-                self._gif_files.append(gif_file)
-
-        print("Found", self._gif_files)
-        if not self._gif_files:
-            print("No Gif files found in current folder")
-            exit()  # pylint: disable=consider-using-sys-exit
 
     def preload(self):
         image = Image.open(self._gif_files[self._index])
@@ -114,39 +103,37 @@ class AnimatedGif:
         if not self._gif_files:
             print("There are no Gif Images loaded to Play")
             return False
-        while True:
-            for frame_object in self._frames:
-                start_time = time.monotonic()
-                self.display.image(frame_object.image)
-                _cur_advance_btn_val = self.advance_button.value
-                _cur_back_btn_val = self.back_button.value
-                if not _cur_advance_btn_val and _prev_advance_btn_val:
-                    self.advance()
-                    return False
-                if not _cur_back_btn_val and _prev_back_btn_val:
-                    self.back()
-                    return False
+        for frame_object in self._frames:
+            start_time = time.monotonic()
+            self.display.image(frame_object.image)
+            _cur_advance_btn_val = self.advance_button.value
+            _cur_back_btn_val = self.back_button.value
+            if not _cur_advance_btn_val and _prev_advance_btn_val:
+                self.advance()
+                return False
+            if not _cur_back_btn_val and _prev_back_btn_val:
+                self.back()
+                return False
 
-                _prev_back_btn_val = _cur_back_btn_val
-                _prev_advance_btn_val = _cur_advance_btn_val
-                while time.monotonic() < (start_time + frame_object.duration / 1000):
-                    pass
+            _prev_back_btn_val = _cur_back_btn_val
+            _prev_advance_btn_val = _cur_advance_btn_val
+            while time.monotonic() < (start_time + frame_object.duration / 1000):
+                pass
 
-            if self._loop == 1:
-                return True
-            if self._loop > 0:
-                self._loop -= 1
+        if self._loop == 1:
+            return True
+        if self._loop > 0:
+            self._loop -= 1
 
     def run(self):
-        while True:
-            auto_advance = self.play()
-            if auto_advance:
-                self.advance()
+        auto_advance = self.play()
+        if auto_advance:
+            self.advance()
 # Configuration for CS and DC pins:
 CS_PIN = CE0
 DC_PIN = D24
 RESET_PIN = D25
-BAUDRATE = 24000000
+BAUDRATE = 48000000
 
 # Setup SPI bus using hardware SPI:
 spi = busio.SPI(clock=SCK, MOSI=MOSI, MISO=MISO)
@@ -171,5 +158,7 @@ else:
     disp_width = disp.width
     disp_height = disp.height
 
+def gif(path):
+    gif_player = AnimatedGif(disp, width=disp_width, height=disp_height, gif = path)
 
-gif_player = AnimatedGif(disp, width=disp_width, height=disp_height, folder="./GIFHumeurs/Clindoeuil")
+
