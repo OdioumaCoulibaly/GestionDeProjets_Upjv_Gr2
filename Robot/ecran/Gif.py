@@ -4,6 +4,7 @@ import os
 import time
 import busio
 import sys
+import RPi.GPIO as GPIO
 from PIL import Image, ImageDraw, ImageOps
 import digitalio
 from board import SCK, MOSI, MISO, CE0, D24, D25
@@ -159,6 +160,10 @@ else:
     disp_height = disp.height
 
 def gif(path):
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(24,GPIO.OUT)
+    GPIO.setup(25,GPIO.OUT)
     gif_player = AnimatedGif(disp, width=disp_width, height=disp_height, gif = path)
+
 
 

@@ -9,33 +9,54 @@ import os
 #    time.sleep(0.5)
 #  MIN moteur p.ChangeDutyCycle(2.5)
 #    time.sleep(0.5)
-
-def YoupiGauche():
+def Youpi():
     GPIO.setwarnings(False) #Désactive les warnings dans le terminal
-    print("Initialisation du moteur du bras gauche")
+    servoPINDroite = 23
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(servoPINDroite, GPIO.OUT)
+    droite = GPIO.PWM(servoPINDroite, 50) # GPIO 18 for PWM with 50Hz
+    droite.start(2.5) # Initialization
+    
     servoPINGauche = 18
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(servoPINGauche, GPIO.OUT)
     gauche = GPIO.PWM(servoPINGauche, 50) # GPIO 18 for PWM with 50Hz
     gauche.start(2.5) # Initialization
-    print("Je vais faire Youpi du bras gauche")
+    
+    droite.ChangeDutyCycle(5)
+    time.sleep(0.15)
     gauche.ChangeDutyCycle(12)
+    time.sleep(0.15)
+    droite.ChangeDutyCycle(4)
+    time.sleep(0.15)
+    gauche.ChangeDutyCycle(11)
+    time.sleep(0.15)
+    droite.ChangeDutyCycle(5)
+    time.sleep(0.15)
+    gauche.ChangeDutyCycle(12)
+    time.sleep(0.15)
+    droite.ChangeDutyCycle(4)
+    time.sleep(0.15)
+    gauche.ChangeDutyCycle(11)
+    time.sleep(0.15)
+    droite.ChangeDutyCycle(5)
+    time.sleep(0.15)
+    gauche.ChangeDutyCycle(12)
+    time.sleep(0.15)
+    droite.ChangeDutyCycle(4)
     time.sleep(0.15)
     gauche.ChangeDutyCycle(11)
     time.sleep(0.15)
     gauche.ChangeDutyCycle(12)
     time.sleep(0.15)
-    gauche.ChangeDutyCycle(11)
-    time.sleep(0.15)
-    gauche.ChangeDutyCycle(12)
-    time.sleep(0.15)
-    gauche.ChangeDutyCycle(11)
-    time.sleep(0.15)
+    droite.ChangeDutyCycle(15)
+    time.sleep(0.1)
     gauche.ChangeDutyCycle(2)
-    time.sleep(random.randint(1,4))
-    GPIO.cleanup()
-    print("Fin du YoupiGauche")
+    time.sleep(2)
                 
+                
+                
+
 
 
 

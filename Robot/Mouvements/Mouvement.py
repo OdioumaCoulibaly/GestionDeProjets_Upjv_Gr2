@@ -1,24 +1,18 @@
 import Coucou
 import Danse
 import Tektonik
-import YoupiDroit
-import YoupiGauche
+import Youpi
 import os
+import time
 
 def setMouvement(mouvement):
     if mouvement == "coucou":
         Coucou.Coucou()
+        Tektonik.Tektonik()
     if mouvement == "danse":
         Danse.Danse()
-    if mouvement == "tektonik":
+    if mouvement == "tecktonik":
         Tektonik.Tektonik()
     
     if mouvement == "youpi":
-        pid = os.fork()
-        try:
-            if pid > 0:
-                YoupiDroit.YoupiDroit()
-            else:
-                YoupiGauche.YoupiGauche()
-        except KeyboardInterrupt:
-        print("Arrêt par contrôle clavier")
+        Youpi.Youpi()

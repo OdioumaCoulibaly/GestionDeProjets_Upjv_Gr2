@@ -10,50 +10,30 @@ import os
 #  MIN moteur p.ChangeDutyCycle(2.5)
 #    time.sleep(0.5)
 def Tektonik():
+    print("Lancement Tecktonik")
     GPIO.setwarnings(False) #Désactive les warnings dans le terminal
-
-    pid = os.fork()
-    try:
-        if pid > 0 :
-            pid2 = os.fork()
-            try:
-                if pid2 > 0 :
-                    print("Initialisation du moteur du bras gauche")
-                    servoPINGauche = 18
-                    GPIO.setmode(GPIO.BCM)
-                    GPIO.setup(servoPINGauche, GPIO.OUT)
-                    gauche = GPIO.PWM(servoPINGauche, 50) # GPIO 18 for PWM with 50Hz
-                    gauche.start(2.5) # Initialization
-                    #Mouvements :
-                    gauche.ChangeDutyCycle(round(random.uniform(2.5, 12.5),2))
-                    time.sleep(random.randint(1,4))
-                else :
-                    print("Initialisation du moteur du bras droit")
-                    servoPINDroite = 23
-                    GPIO.setmode(GPIO.BCM)
-                    GPIO.setup(servoPINDroite, GPIO.OUT)
-                    droite = GPIO.PWM(servoPINDroite, 50) # GPIO 23 for PWM with 50Hz
-                    droite.start(2.5) # Initialization
-                    #Mouvements :
-                    droite.ChangeDutyCycle(round(random.uniform(2.5, 12.5),2))
-                    time.sleep(random.randint(1,4))
+    servoPINGauche = 18
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(servoPINGauche, GPIO.OUT)
+    gauche = GPIO.PWM(servoPINGauche, 50) # GPIO 18 for PWM with 50Hz
+    gauche.start(2.5) # Initialization
     
-            except KeyboardInterrupt:
-                print("Arrêt par contrôle clavier")
-        else:
-            print("Initialisation du moteur bassin")
-            servoPINBassin = 24
-            GPIO.setmode(GPIO.BCM)
-            GPIO.setup(servoPINBassin, GPIO.OUT)
-            bassin = GPIO.PWM(servoPINBassin, 50) # GPIO 24 for PWM with 50Hz
-            bassin.start(2.5) # Initialization
-            #Mouvements :
-            bassin.ChangeDutyCycle(round(random.uniform(2.5, 12.5),2))
-            time.sleep(random.uniform(0.5, 1.0))
+    servoPINDroite = 23
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(servoPINDroite, GPIO.OUT)
+    droite = GPIO.PWM(servoPINDroite, 50) # GPIO 23 for PWM with 50Hz
+    droite.start(2.5) # Initialization
+    
+    servoPINBassin = 21
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(servoPINBassin, GPIO.OUT)
+    bassin = GPIO.PWM(servoPINBassin, 50) # GPIO 24 for PWM with 50Hz
+    bassin.start(2.5) # Initialization
 
-    except KeyboardInterrupt:
-        GPIO.cleanup()
-                
-
-
-
+    for i in range(10):
+        gauche.ChangeDutyCycle(round(random.uniform(2.5, 12.5),2))
+        time.sleep(random.randint(1,2))
+        droite.ChangeDutyCycle(round(random.uniform(2.5, 12.5),2))
+        time.sleep(random.randint(1,2))
+        bassin.ChangeDutyCycle(round(random.uniform(2.5, 12.5),2))
+        time.sleep(random.randint(1,2))

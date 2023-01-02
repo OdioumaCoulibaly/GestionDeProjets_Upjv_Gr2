@@ -12,7 +12,7 @@ import os
 
 def Danse():
     GPIO.setwarnings(False) #Désactive les warnings dans le terminal
-    id = os.fork()
+    pid = os.fork()
     try:
         if pid > 0 :
             pid2 = os.fork()
@@ -24,7 +24,7 @@ def Danse():
                     GPIO.setup(servoPINGauche, GPIO.OUT)
                     gauche = GPIO.PWM(servoPINGauche, 50) # GPIO 18 for PWM with 50Hz
                     gauche.start(2.5) # Initialization
-                    while True:
+                    for i in range(3):
                         gauche.ChangeDutyCycle(round(random.uniform(2.5, 12.5),2))
                         time.sleep(random.randint(1,4))
                 else :
@@ -34,7 +34,7 @@ def Danse():
                     GPIO.setup(servoPINDroite, GPIO.OUT)
                     droite = GPIO.PWM(servoPINDroite, 50) # GPIO 23 for PWM with 50Hz
                     droite.start(2.5) # Initialization
-                    while True:
+                    for i in range(3):
                         droite.ChangeDutyCycle(round(random.uniform(2.5, 12.5),2))
                         time.sleep(random.randint(1,4))
     
@@ -42,12 +42,12 @@ def Danse():
                 print("Arrêt par contrôle clavier")
         else:
             print("Initialisation du moteur bassin")
-            servoPINBassin = 24
+            servoPINBassin = 21
             GPIO.setmode(GPIO.BCM)
             GPIO.setup(servoPINBassin, GPIO.OUT)
             bassin = GPIO.PWM(servoPINBassin, 50) # GPIO 24 for PWM with 50Hz
             bassin.start(2.5) # Initialization
-            while True :
+            for i in range(3):
                 bassin.ChangeDutyCycle(round(random.uniform(2.5, 12.5),2))
                 time.sleep(random.uniform(0.5, 1.0))
 

@@ -10,11 +10,13 @@ import Gif
 sys.path.append('../Mouvements')
 import Coucou
 sys.path.append('../')
+import Coeur
 import random
 
-#Lance 3 fois le gif... (temps de lancement & connexion)
-for i in range(3):
-    Gif.gif("./Demarrage.gif")
+
+#Lance 2 fois le gif... (temps de lancement & connexion)
+for i in range(2):
+    Gif.gif("./GIF/Demarrage.gif")
 Coucou.Coucou()
 Coeur.Coeur()
 

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -- coding: utf-8 --#
 import random
+import sys
 sys.path.append('./ReconnaissanceVocale')
 import ChatVoc
-import sys
 import random
 
 def Ecoute():

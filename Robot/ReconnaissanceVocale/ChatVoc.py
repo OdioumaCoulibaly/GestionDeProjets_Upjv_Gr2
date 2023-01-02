@@ -3,7 +3,6 @@ import speech_recognition as sr
 import logging
 
 
-
 def Rec():
     # Initialisation du recognizer
     r = sr.Recognizer()
