@@ -10,10 +10,14 @@
         android:id="@+id/idDeconnexion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/fond_couleur"
         android:contentDescription="@string/deconnec"
         android:text="Deconnexion"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
@@ -34,24 +38,36 @@
 
             <Button
                 android:id="@+id/idCoucou"
-                android:layout_width="115dp"
+                android:layout_width="125dp"
                 android:layout_height="match_parent"
+                android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:text="Coucou" />
+                android:background="@drawable/cercle"
+                android:text="Coucou"
+                android:textColor="#FFFFFFFF"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/idYoupi"
-                android:layout_width="117dp"
+                android:layout_width="133dp"
                 android:layout_height="match_parent"
+                android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:text="Youpi" />
+                android:background="@drawable/cercle"
+                android:text="Youpi"
+                android:textSize="20sp"
+                android:textColor="#FFFFFFFF" />
 
             <Button
                 android:id="@+id/idMasque"
-                android:layout_width="138dp"
+                android:layout_width="118dp"
                 android:layout_height="match_parent"
+                android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:text="Masque" />
+                android:background="@drawable/cercle"
+                android:text="Masque"
+                android:textColor="#FFFFFFFF"
+                android:textSize="20sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -62,24 +78,36 @@
 
             <Button
                 android:id="@+id/idLeverMain"
-                android:layout_width="wrap_content"
+                android:layout_width="122dp"
                 android:layout_height="match_parent"
+                android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:text="lever main" />
+                android:background="@drawable/cercle"
+                android:text="lever main"
+                android:textColor="#FFFFFFFF"
+                android:textSize="20sp"/>
 
             <Button
                 android:id="@+id/idBaisserMain"
-                android:layout_width="wrap_content"
+                android:layout_width="125dp"
                 android:layout_height="match_parent"
+                android:layout_margin="1dp"
                 android:layout_weight="1"
+                android:textSize="20sp"
+                android:background="@drawable/cercle"
+                android:textColor="#FFFFFFFF"
                 android:text="baisser main" />
 
             <Button
                 android:id="@+id/idBase"
-                android:layout_width="wrap_content"
+                android:layout_width="119dp"
                 android:layout_height="match_parent"
+                android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:text="Base" />
+                android:background="@drawable/cercle"
+                android:text="Base"
+                android:textColor="#FFFFFFFF"
+                android:textSize="20sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -93,21 +121,33 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="danser" />
+                android:text="danser"
+                android:layout_margin="1dp"
+                android:background="@drawable/cercle"
+                android:textColor="#FFFFFFFF"
+                android:textSize="20sp"/>
 
             <Button
                 android:id="@+id/idClin_d_oeuil"
-                android:layout_width="wrap_content"
+                android:layout_width="90dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Clin d'oeuil" />
+                android:text="Clin d'oeuil"
+                android:layout_margin="1dp"
+                android:background="@drawable/cercle"
+                android:textColor="#FFFFFFFF"
+                android:textSize="20sp"/>
 
             <Button
                 android:id="@+id/idRire"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Rire" />
+                android:text="Rire"
+                android:layout_margin="1dp"
+                android:background="@drawable/cercle"
+                android:textColor="#FFFFFFFF"
+                android:textSize="20sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -121,21 +161,33 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="colère" />
+                android:text="colère"
+                android:layout_margin="1dp"
+                android:background="@drawable/cercle"
+                android:textColor="#FFFFFFFF"
+                android:textSize="20sp"/>
 
             <Button
                 android:id="@+id/idTektonik"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Tektonik" />
+                android:text="Tektonik"
+                android:layout_margin="1dp"
+                android:background="@drawable/cercle"
+                android:textColor="#FFFFFFFF"
+                android:textSize="20sp"/>
 
             <Button
                 android:id="@+id/idSurprise"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="surprise" />
+                android:text="surprise"
+                android:layout_margin="1dp"
+                android:background="@drawable/cercle"
+                android:textColor="#FFFFFFFF"
+                android:textSize="20sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -149,21 +201,32 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Tristesse" />
+                android:text="Tristesse"
+                android:layout_margin="1dp"
+                android:background="@drawable/cercle"
+                android:textColor="#FFFFFFFF"
+                android:textSize="20sp"/>
 
             <Button
                 android:id="@+id/idFatigue"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="fatigue" />
+                android:background="@drawable/cercle"
+                android:text="fatigue"
+                android:textColor="#FFFFFFFF"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/idAmoureux"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Amoureux" />
+                android:text="Amoureux"
+                android:layout_margin="1dp"
+                android:background="@drawable/cercle"
+                android:textColor="#FFFFFFFF"
+                android:textSize="20sp"/>
         </LinearLayout>
 
     </LinearLayout>
