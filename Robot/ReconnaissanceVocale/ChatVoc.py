@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 import speech_recognition as sr
+import logging
 
-# Initialisation du recognizer
-r = sr.Recognizer()
 
-while True:
+
+def Rec():
+    # Initialisation du recognizer
+    r = sr.Recognizer()
     # Écouter l'audio avec le microphone
+    logging.getLogger('speech_recognition').setLevel(logging.ERROR)
     with sr.Microphone() as source:
         print("Dites quelque chose :")
         audio = r.listen(source)
@@ -15,10 +18,7 @@ while True:
         text = r.recognize_google(audio, language="fr-FR")
         print(f"Vous avez dit : {text}")
         # Ouvrir le fichier en mode "append" (ajouter à la fin du fichier)
-        if text == "Bonjour":
-            with open("test.txt", "a") as f:
-            # Écrire du texte dans le fichier et revenir à la ligne
-                f.write(text)
+        return text
 
     except sr.UnknownValueError:
         print("Je n'ai pas compris ce que vous avez dit")
