@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Learnobot</string>
+    <string name="deconnec">Deconnexion</string>
 </resources>
