@@ -146,16 +146,12 @@ public class MainActivity extends AppCompatActivity {
                             Log.d(TAG, "deviceHardwareAddress:" + deviceHardwareAddress);
                             //We append all devices to a String that we will display in the UI
                             btDevicesString=btDevicesString+deviceName+" || "+deviceHardwareAddress+"\n";
-                            //If we find the HC 05 device (the Arduino BT module)
-                            //We assign the device value to the Global variable BluetoothDevice
-                            //We enable the button "Connect to HC 05 device"
-                          //  if (deviceName.equals("HC-05")) {
-                                Log.d(TAG, "HC-05 found");
+
                                 arduinoUUID = device.getUuids()[0].getUuid();
                                 arduinoBTModule = device;
                                 //HC -05 Found, enabling the button to read results
                                 connectToDevice.setEnabled(true);
-                         //   }
+
                             btDevices.setText(btDevicesString);
                         }
                     }
