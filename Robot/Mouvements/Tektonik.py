@@ -30,10 +30,14 @@ def Tektonik():
     bassin = GPIO.PWM(servoPINBassin, 50) # GPIO 24 for PWM with 50Hz
     bassin.start(2.5) # Initialization
 
-    for i in range(10):
+    for i in range(4):
         gauche.ChangeDutyCycle(round(random.uniform(2.5, 12.5),2))
         time.sleep(random.randint(1,2))
         droite.ChangeDutyCycle(round(random.uniform(2.5, 12.5),2))
         time.sleep(random.randint(1,2))
         bassin.ChangeDutyCycle(round(random.uniform(2.5, 12.5),2))
         time.sleep(random.randint(1,2))
+        
+    gauche.ChangeDutyCycle(2.5)
+    droite.ChangeDutyCycle(2.5)
+    bassin.ChangeDutyCycle(2.5)

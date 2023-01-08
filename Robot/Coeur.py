@@ -8,9 +8,11 @@ import sys
 import select
 sys.path.append('../ReconnaissanceVocale')
 import Ecoute
+sys.path.append('../AppliMobile')
+import Data
 sys.path.append('../Humeurs')
 import Humeur
-sys.path.append('../Mouvement')
+sys.path.append('../Mouvements')
 import Mouvement
 #  MAX moteur  p.ChangeDutyCycle(12.5)
 #    time.sleep(0.5)
@@ -18,33 +20,8 @@ import Mouvement
 #    time.sleep(0.5)
 
 
-def check_variable():
-    pipe_read = os.open("C:\\temp\\pipe", os.O_RDONLY)
-    binary_data = os.read(pipe_read, 1024)  # Lire jusqu'à 1024 octets
-    message = binary_data.decode()
-    print("Read :"+message)
-    if not message:
-        # Obtenez le temps actuel en secondes
-        current_time = time.time()
-        # Définissez le temps de départ en secondes
-        tmp = random.randint(120, 360)
-        start_time = current_time - tmp
-        # Boucle jusqu'à ce que la variable soit vraie ou que les secondes se soient écoulées
-        while not message and current_time - start_time < tmp:
-            time.sleep(1)  # Attendez 1 seconde avant de vérifier à nouveau
-            current_time = time.time()
-            pipe_read = os.open("C:\\temp\\pipe", os.O_RDONLY)
-            binary_data = os.read(pipe_read, 1024)  # Lire jusqu'à 1024 octets
-            message = binary_data.decode()
-            print("Read :"+message)
-        # Si la variable est toujours fausse après 5 minutes, imprimez HelloWorld
-        if not message:
-            pipe_write = os.open("C:\\temp\\pipe", os.O_WRONLY)
-            binary_data = Ecoute.setRandomHumeur().encode()
-            os.write(pipe_write, binary_data)
 
-
-def Coeur():
+def Coeur(aff, fenetre):
     #os.mkfifo("C:\\temp\\pipe")
     GPIO.setwarnings(False)  # Désactive les warnings dans le terminal
 
@@ -71,20 +48,18 @@ def Coeur():
                             os.close(pipe_write)
 
                         else:
+                            print("CAPTEUR 2 Appli")
                             while True:
-#                               print("Complément : Si rien n'est détecté, l'humeur change seule")
-                                if readable:
-                                    binary_data = os.read(pipe_read, 1024)  # Lire jusqu'à 1024 octets
-                                    message = binary_data.decode()
-                                    print("Read WhileHumeurs:"+message)
-                                    if message:
-                                        print(message + "SPOTTED")
-                                    else:
-                                        print("Quedal")   
+                                data = Data.getData()
+                                if data:
+                                    pipe_write = os.open("C:\\temp\\pipe", os.O_WRONLY)
+                                    data = data.encode()
+                                    os.write(pipe_write, data)
+                                    os.close(pipe_write)
+                                    
                     except KeyboardInterrupt:
                         print("Arrêt par contrôle clavier")
-                    # Si Ecoute.Ecoute() ne donne rien depuis rand(1minute, 6minute) l'humeur change seule aléatoirement :) (Emmet des sons ?)
-
+                    
                 else:
 
                     print("CAPTEUR 2 APPLI")
@@ -108,12 +83,12 @@ def Coeur():
                             message = binary_data.decode()
                             print(message)
                             if message:
-                                print(Humeur)
-                                Humeur.setHumeur(message)
-                                Mouvement.setMouvement(message)
+                                Humeur.setHumeur(aff, fenetre, message)
+                                Mouvement.setMouvement(aff, fenetre, message)
                         else:
                             Humeur.setBaseHumeur()
-                    os.close(pipe_read)
+                            os.close(pipe_read)
+                            time.sleep(3)
     
             except KeyboardInterrupt:
                 print("Arrêt par contrôle clavier")

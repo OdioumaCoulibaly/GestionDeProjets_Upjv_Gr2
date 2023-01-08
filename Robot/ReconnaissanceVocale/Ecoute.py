@@ -30,7 +30,7 @@ def Ecoute():
         return "coucou"
     if parole == "danse":
         return "danse"
-    if parole == "tektonik":
+    if parole == "tecktonik":
         return "tektonik"
     if parole == "youpi":
         return "youpi"
